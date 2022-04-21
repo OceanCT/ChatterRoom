@@ -1,6 +1,6 @@
 import threading
 import tkinter
-from Connector import Client
+from Connector import *
 from ClientGUI import *
 import queue
 
@@ -29,7 +29,7 @@ def Chat():
     msg_queue.get()
     chat_frame = ChatFrame.ChatFrame()
     chat_frame.send_button.configure(command=lambda: [
-        client.send_message(chat_frame.get_input())
+        client.send_message(chat_frame.get_input(), [])
     ])
     threading.Thread(target=show_message,args=(chat_frame,)).start()
     chat_frame.show()
@@ -37,6 +37,6 @@ def Chat():
 
 if __name__ == '__main__':
     msg_queue = queue.Queue()
-    client = Client.Client(listener_port=13876)
+    client = Client.Client(listener_port=13877)
     threading.Thread(target=loginAndSignUp).start()
     threading.Thread(target=Chat).start()
