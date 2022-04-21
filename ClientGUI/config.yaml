@@ -1,0 +1,35 @@
+loginFrameConfig:
+  root_height: 400
+  root_width: 600
+  label_width: 25
+  username_label_x: 150
+  username_label_y: 100
+  username_x: 270
+  username_y: 100
+  password_label_x: 150
+  password_label_y: 225
+  password_x: 270
+  password_y: 225
+  login_button_x: 200
+  login_button_y: 350
+  signup_button_x: 300
+  signup_button_y: 350
+chatFrameConfig: 
+  root_height: 800
+  root_width: 1200
+  msg_box_height: 500
+  msg_box_width: 1050
+  msg_box_x: 0
+  msg_box_y: 0
+  input_box_height: 254
+  input_box_width: 1050  
+  input_box_x: 0     
+  input_box_y: 501
+  chatter_box_height: 800  
+  chatter_box_width: 149
+  chatter_box_x: 1051
+  chatter_box_y: 0
+  send_button_height: 44
+  send_button_width: 100
+  send_button_x: 951
+  send_button_y: 756
