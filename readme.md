@@ -1,3 +1,29 @@
+# 项目结构
+
+```
+
+.
+├── ClientGUI
+│   ├── __init__.py
+│   ├── ChatFrame.py
+│   ├── Config.py
+│   ├── config.yaml
+│   └── LoginFrame
+├── Connector
+│   ├── __init__.py
+│   ├── Client.py
+│   ├── ConnectingMessage.py
+│   ├── Server.py
+│   ├── User.py
+│   ├── UserService.py
+│──── client.py
+│──── config.yaml
+│──── server.py
+│──── readme.md
+
+
+```
+
 # 使用需知
 
 ## Server
