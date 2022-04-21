@@ -25,7 +25,7 @@ class Client:
         self.receiver.listen(1)
         threading.Thread(target=self.receive_message).start()
 
-    def send_message(self, data: str, receiver_id=list):
+    def send_message(self, data: str):
         receiver_id = ['all']
         msg = ConnectingMessage.Message(self.user, data, receiver_id)
         cs = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
