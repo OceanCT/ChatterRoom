@@ -19,7 +19,8 @@ class Client:
     message_queue = queue.Queue()
     receiver = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
 
-    def __init__(self):
+    def __init__(self,listener_port=13876):
+        self.listener_port = listener_port
         self.receiver.bind((self.listener_ip, self.listener_port))
         self.receiver.listen(1)
         threading.Thread(target=self.receive_message).start()
@@ -44,7 +45,7 @@ class Client:
             self.error_message = "Please enter username."
         else:
             user = User.User.user(username=username, password=password)
-            msg = ConnectingMessage.Message(user, "login", [])
+            msg = ConnectingMessage.Message(user, "login", [self.listener_port])
             cs = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
             try:
                 cs.connect((self.server_ip, self.server_port))

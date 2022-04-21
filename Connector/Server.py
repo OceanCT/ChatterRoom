@@ -43,7 +43,7 @@ class Server:
             print(data)
             data = ConnectingMessage.Message.dict_to_object(data)
             print(data.receiver_id)
-            if not data.receiver_id:
+            if data.message == 'login' or data.message == 'signup':
                 res = ConnectingMessage.Message()
                 if data.message == 'login':
                     res = self.login(data)
@@ -51,7 +51,8 @@ class Server:
                     res = self.signup(data)
                 cs.sendall(bytes(json.dumps(res.to_dict()), 'utf-8'))
                 if res.message == 'success':
-                    caddr = (caddr[0], 13876)
+                    caddr = (caddr[0], data.receiver_id[0])
+                    print(caddr)
                     service = ConnectingMessageService.ConnectingMessageService()
                     for msg in service.fetch_message():
                         time.sleep(0.00000001)

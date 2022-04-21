@@ -37,6 +37,6 @@ def Chat():
 
 if __name__ == '__main__':
     msg_queue = queue.Queue()
-    client = Client.Client(listener_port=13876)
+    client = Client.Client(listener_port=13877)
     threading.Thread(target=loginAndSignUp).start()
     threading.Thread(target=Chat).start()
